@@ -3,7 +3,7 @@ from game import Game
 from plotly_display import candlestick, CANDLESTICK_CONFIG, pie_chart, PIE_CONFIG
 
 st.set_page_config(
-    page_title='📈 A Róbert Károly körút farkasa',
+    page_title='📈🚀',
     page_icon='😎',
     initial_sidebar_state='expanded',
     layout='wide'
