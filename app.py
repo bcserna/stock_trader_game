@@ -90,10 +90,13 @@ def on_order_click(order, player, stock, amount):
     if amount > 0:
         if order.lower() == 'buy':
             STATE.game.buy(player, stock, amount)
+            action = ':green[Bought]'
         elif order.lower() == 'sell':
             STATE.game.sell(player, stock, amount)
+            action = ':red[Sold]'
         print(player, order, stock, amount)
         STATE.portfolio_plot_invalid = True
+        st.toast(f"{action} `{amount}` '{stock}'")
 
 
 def generate_stock_price_plots():
