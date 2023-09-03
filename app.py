@@ -1,4 +1,4 @@
-import app as st
+import streamlit as st
 from game import Game
 from plotly_display import candlestick, CANDLESTICK_CONFIG, pie_chart, PIE_CONFIG
 
