@@ -63,7 +63,7 @@ class Game:
         self.last_salary_at = defaultdict(lambda: initial_days)
 
     def buy(self, player, stock, n):
-        required_funds = np.ceil(self.stock_price(stock, self.day_progress[player]) * n)
+        required_funds = int(np.ceil(self.stock_price(stock, self.day_progress[player]) * n))
         if required_funds > self.funds[player]:
             raise NotEnoughException('Not enough funds to buy!')
         else:
@@ -74,7 +74,7 @@ class Game:
         if n > self.stock_amount[player][stock]:
             raise NotEnoughException('Not enough stocks to sell!')
         else:
-            self.funds[player] += np.floor(n * self.stock_price(stock, self.day_progress[player]))
+            self.funds[player] += int(np.floor(n * self.stock_price(stock, self.day_progress[player])))
             self.stock_amount[player][stock] -= n
 
     def progress_days(self, player, n):
