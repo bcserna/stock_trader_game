@@ -25,11 +25,13 @@ def on_start_click():
 
 def display_start_menu():
     with STATE.body.container():
-        st.write('Game setup')
-        STATE.player = st.text_input('Player name')
-        # stock_selector = st.multiselect('Stocks to include', TICKERS.keys())
-        # period = st.selectbox(label='Simulation period (years)', options=[3, 5])
-        st.button('Start', type='primary', on_click=on_start_click)
+        col1, _, _ = st.columns(3)
+        with col1:
+            st.write('Game setup')
+            STATE.player = st.text_input('Player name')
+            # stock_selector = st.multiselect('Stocks to include', TICKERS.keys())
+            # period = st.selectbox(label='Simulation period (years)', options=[3, 5])
+            st.button('Start', type='primary', on_click=on_start_click)
 
 
 def update_portfolio_data():
