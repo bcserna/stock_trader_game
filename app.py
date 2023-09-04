@@ -65,6 +65,7 @@ def display_sidebar():
         # Day progress control
         st.divider()
         # days = st.number_input('Progress days', 1, 30)
+        st.caption('**Progress**')
         col1, col2, col3 = st.columns(3)
         with col1:
             st.button('1 day', type='primary', on_click=on_start_click, args=(1,))
