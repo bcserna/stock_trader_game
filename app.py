@@ -65,9 +65,13 @@ def display_sidebar():
         # Day progress control
         st.divider()
         # days = st.number_input('Progress days', 1, 30)
-        st.button('1 day', type='primary', on_click=on_start_click, args=(1,))
-        st.button('5 days', type='primary', on_click=on_start_click, args=(5,))
-        st.button('30 days', type='primary', on_click=on_start_click, args=(30,))
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.button('1 day', type='primary', on_click=on_start_click, args=(1,))
+        with col2:
+            st.button('5 days', type='primary', on_click=on_start_click, args=(5,))
+        with col3:
+            st.button('30 days', type='primary', on_click=on_start_click, args=(30,))
         # st.button('Go', type='primary', on_click=on_progress_click, args=(days,))
 
         # Order control
