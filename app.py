@@ -64,15 +64,19 @@ def display_sidebar():
 
         # Day progress control
         st.divider()
-        days = st.number_input('Progress days', 1, 30)
-        st.button('Go', type='primary', on_click=on_progress_click, args=(days,))
+        # days = st.number_input('Progress days', 1, 30)
+        st.button('1 day', type='primary', on_click=on_start_click, args=(1,))
+        st.button('5 days', type='primary', on_click=on_start_click, args=(5,))
+        st.button('30 days', type='primary', on_click=on_start_click, args=(30,))
+        # st.button('Go', type='primary', on_click=on_progress_click, args=(days,))
 
         # Order control
         st.divider()
         selected_stock = st.selectbox('Stock', list(STATE.game.stock_data.keys()))
         current_price = STATE.game.stock_price(selected_stock, STATE.game.day_progress[STATE.player])
         st.caption(f'Current price: `{current_price:.1f}`')
-        selected_order = st.select_slider('Order', ['BUY', 'SELL'], label_visibility='collapsed')
+        selected_order = st.selectbox('Order', ['BUY', 'SELL'])
+        # selected_order = st.select_slider('Order', ['BUY', 'SELL'], label_visibility='collapsed')
         max_order = STATE.game.max_order(STATE.player, selected_stock, selected_order)
         amount = st.number_input('Amount', 0, max_order)
         value = current_price * amount
